@@ -1,0 +1,94 @@
+#!/bin/sh
+
+## declarations
+HELP_MSG='
+call syntax:
+    ./configure out/path/script.js [feature1 ...]'
+
+SRC=src
+
+prepend(){
+    ## concatenate all files (arguments) together and overwrite last file.
+    cat "$@" > tmp
+    mv tmp "${@: -1: 1}"
+}
+
+OUT_JS="${1?"$HELP_MSG"}"
+OUT_MIN_JS=$(sed 's/.js$/.min.js/' <<< "$OUT_JS" )
+shift
+
+## features list for a reference
+FEATURES=(
+    "onload"
+
+    "ie"
+
+    "filter" # = path/to/filter.js
+
+    "css"
+    # +connectStylesheet
+    # +addTheme
+
+    "colorize_DOM"
+    # +uncolorize_DOM
+
+    "pure_text_processing"
+    # +colorized_HTML_string_from_string
+    )
+
+## parse features
+while [[ $# > 0 ]]; do
+    case "$1" in
+        onload )                ONLOAD=1;;
+        ie )                    IE=1;;
+        css )                   CSS=1;;
+        colorize_DOM )          DOM=1;;
+        pure_text_processing )  PTP=1;;
+        filter ) shift;         FILTER="$1";;
+        * ) echo "unrecognized feature: $1"
+            exit 1
+    esac
+    shift;
+done
+
+## incompatible options
+if [[ -z "$ONLOAD" ]]; then
+    for opt in CSS IE; do
+        if [[ "${!opt}" ]]; then
+            echo "'${opt}' option only makes sense when used with 'onload'" >&2
+            exit 1
+        fi
+    done
+fi
+
+## remove old srcipt file and fill it with chuncks of code
+rm -f "$OUT_JS" "$OUT_MIN_JS"
+touch "$OUT_JS"
+
+if [[ "$ONLOAD" ]]; then
+    cat "$SRC"/init.js  >> "$OUT_JS"
+fi
+
+if [[ "$FILTER" ]]; then
+    cat "$FILTER"       >> "$OUT_JS"
+fi
+
+if [[ "$CSS" ]]; then
+    cat "$SRC"/css.js   >> "$OUT_JS"
+fi
+
+cat "$SRC"/core.js      >> "$OUT_JS"
+
+## minification
+uglifyjs "$OUT_JS" -o "$OUT_MIN_JS" -c -m
+
+# to be prepended after minification
+if [[ "$ONLOAD" ]]; then
+    if [[ "$IE" ]]; then
+        prepend "$SRC"/onload-ie.js "$OUT_JS"
+        prepend "$SRC"/onload-ie.js "$OUT_MIN_JS"
+    else
+        prepend "$SRC"/onload.js    "$OUT_JS"
+        prepend "$SRC"/onload.js    "$OUT_MIN_JS"
+    fi
+fi
