@@ -29,8 +29,8 @@ clean:
 	rm -rf $(FINAL)
 
 bkrs:
-	mkdir -p $(BKRSINFO)
-	./assemble $(BKRSINFO)/$(NAME).js onload ie css filter $(SRC)/bkrs.js
+	mkdir -p "$(BKRSINFO)/$(NAME)@$(VERSION)"
+	./assemble "$(BKRSINFO)/$(NAME)@$(VERSION)/$(NAME).js" onload ie css filter $(SRC)/bkrs.js
 	@echo "done: bkrs."
 
 test:
