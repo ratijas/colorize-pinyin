@@ -12,7 +12,7 @@ BKRSINFO = $(FINAL)/bkrs.info
 
 #### rules
 
-TARGETS = all help bkrs clean
+TARGETS = all help bkrs clean test
 
 .PHONY: $(TARGETS)
 all: bkrs
@@ -39,3 +39,5 @@ bkrs:
 	cat $(SRC)/onload-ie.js $(BKRSINFO)/$(NAME).min.js > tmp && mv tmp $(BKRSINFO)/$(NAME).min.js
 	@echo "done: bkrs."
 
+test:
+	NODE_ENV=test mocha test
