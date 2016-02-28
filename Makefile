@@ -31,6 +31,7 @@ clean:
 bkrs:
 	mkdir -p "$(BKRSINFO)/$(NAME)@$(VERSION)"
 	./assemble "$(BKRSINFO)/$(NAME)@$(VERSION)/$(NAME).js" onload ie css filter $(SRC)/bkrs.js
+	cd $(BKRSINFO) && zip -q -9r "$(NAME)@$(VERSION).zip" "$(NAME)@$(VERSION)"
 	@echo "done: bkrs."
 
 test:
