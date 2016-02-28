@@ -33,8 +33,9 @@ bkrs:
 	rm -f $(BKRSINFO)/$(NAME).js
 	cat $(SRC)/bkrs.js      >> $(BKRSINFO)/$(NAME).js
 	cat $(SRC)/core.js      >> $(BKRSINFO)/$(NAME).js
+	uglifyjs $(BKRSINFO)/$(NAME).js -o $(BKRSINFO)/$(NAME).min.js -c -m
 	# after minifying, because there's code for IE inside comments
-	cat $(SRC)/onload-ie.js $(BKRSINFO)/$(NAME).js > temp
-	mv temp $(BKRSINFO)/$(NAME).js
+	cat $(SRC)/onload-ie.js $(BKRSINFO)/$(NAME).js > tmp && mv tmp $(BKRSINFO)/$(NAME).js
+	cat $(SRC)/onload-ie.js $(BKRSINFO)/$(NAME).min.js > tmp && mv tmp $(BKRSINFO)/$(NAME).min.js
 	@echo "done: bkrs."
 
