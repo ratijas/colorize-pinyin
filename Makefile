@@ -30,13 +30,7 @@ clean:
 
 bkrs:
 	mkdir -p $(BKRSINFO)
-	rm -f $(BKRSINFO)/$(NAME).js
-	cat $(SRC)/bkrs.js      >> $(BKRSINFO)/$(NAME).js
-	cat $(SRC)/core.js      >> $(BKRSINFO)/$(NAME).js
-	uglifyjs $(BKRSINFO)/$(NAME).js -o $(BKRSINFO)/$(NAME).min.js -c -m
-	# after minifying, because there's code for IE inside comments
-	cat $(SRC)/onload-ie.js $(BKRSINFO)/$(NAME).js > tmp && mv tmp $(BKRSINFO)/$(NAME).js
-	cat $(SRC)/onload-ie.js $(BKRSINFO)/$(NAME).min.js > tmp && mv tmp $(BKRSINFO)/$(NAME).min.js
+	./assemble $(BKRSINFO)/$(NAME).js onload ie css filter $(SRC)/bkrs.js
 	@echo "done: bkrs."
 
 test:
