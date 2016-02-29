@@ -1,7 +1,7 @@
 #### configuration
 
 NAME = colorize-pinyin
-VERSION = 0.9.0
+VERSION = 0.9.1
 
 SRC = src
 FINAL = final
