@@ -2,9 +2,9 @@
 /* basically, just <a> tags fiter */
 
 window.ColorizeFilter = {
-	rootNode: function () {return null},
+    rootNode: function () {return null},
 
-	filterNode: function (node) {
-		return 'a' !== node.tagName.toLowerCase();
-	}
+    filterNode: function (node) {
+        return 'a' !== node.tagName.toLowerCase();
+    }
 };
