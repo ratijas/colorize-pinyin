@@ -43,6 +43,7 @@ du:
 	./assemble "$(DU)/$(NAME)@$(VERSION)/user.js" onload filter $(SRC)/dict_uni.js
 	mv "$(DU)/$(NAME)@$(VERSION)/user.min.js" "$(DU)/$(NAME)@$(VERSION)/user.js"
 	cp -r css "$(DU)/$(NAME)@$(VERSION)/css"
+	cd "$(DU)" && zip -q -9r "$(NAME)@$(VERSION).zip" "$(NAME)@$(VERSION)"
 	@echo "done: du."
 
 test:
