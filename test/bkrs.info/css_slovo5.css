@@ -1,0 +1,69 @@
+#main{max-width:1000px;margin:0 auto}
+
+#ch, .ch2, .ch3, .chinese, #ch_long {font-family:KaiTi,simsun,Nsimsun,arial unicode MS, sans-serif,arial;}
+#ch {font-size:30pt;}
+#ch_long {font-size:24pt;}
+.ch2 {font-size:22pt;}
+.ch3 {font-size:18pt;text-align:center;}
+.py{font-size:20pt;margin:0.2em,0.5em}
+.py2{font-size:15pt;margin:0.2em,0.5em;}
+.ru{font-size:14pt;line-height:1.5em;margin:10px 0 0 0;}
+.ru2{font-size:12pt;line-height:1.5em;margin:10px 0 0 0;}
+#examples {margin:0 0 0 0; font-size:14pt}
+h1 {margin:0;padding:0;font-size:10pt;display:inline}
+#screen {position:absolute;top:0;width:800px;height:40px;background:white;z-index:1}
+#top-word {position:absolute;top:0;width:750px;font-size:10pt;line-height:0.8em}
+
+.hr_sats {width:300px;text-align:left;height:1px;border:0;background:gray}
+
+#tbl_junction td {vertical-align:top;padding:5px 0 5px 0}
+#tbl_fullsearch td {font-size:14pt;vertical-align:top;padding:5px 0 5px 0}
+
+/* РУССКИЕ */
+#ru_ru {font-size:22pt;}
+.ch_ru {font-size:14pt}
+
+/* ПОИСК ПО ПИНЬИНЮ */
+#py_search_py {font-size:20pt;padding-left:10px}
+#py_table {border-collapse: collapse;}
+#py_table td {padding:3px 0}
+
+/* Форма ввода */
+#kw {font-size:20pt;font-family:arial;text-align:center;}
+.button{font-size:12pt;font-family:Verdana, sans-serif;}
+#form,#form2,#form3{text-align:center}
+
+#social_ads {width:600px;margin:0 auto;background:#fffbe6;padding:10px;border:1px solid #fde587;
+	border-radius:5px;
+	-moz-border-radius: 5px;
+}
+
+/* Деление */
+#left_half {float:left;width:48%}
+#right_half {float:right;width:48%}
+
+.ex_tbl {font-size:14pt;width:100%;table-layout:fixed;}
+
+.word{font-size:30pt;font-family:simsun, Nsimsun, arial unicode MS, sans-serif;}
+
+#text_tr {display:none}
+#translation {margin:25px 0 0 50px;padding:5px;}
+
+#questions-inword {float:right;font-size:80%;padding:8px;-moz-border-radius: 5px;-webkit-border-radius: 5px;background:#E0EAF1;}
+#no-such-word {background:#FFEFC6;float:left;padding:8px;-moz-border-radius: 5px;-webkit-border-radius: 5px;font-size:80%}
+
+form#form_comment_word {display:none}
+textarea#comment_word_textarea {border:1px solid gray;width:400px;height:150px;font-size:12pt;overflow:auto}
+
+.sound_py {color:gray;font-size:14px}
+
+a.w_bad {color:#6b6b6b}
+a.w_bad:hover {color:black}
+
+.too_long {position:absolute;width:247px;padding-bottom:5px;border-bottom:1px solid gray;padding-left:3px}
+.td_word_hover {background:#f8f8f8;}
+
+.tbl_bywords {border-collapse:collapse}
+.tbl_bywords td {padding:0 3px}
+
+#auto_trans_td {padding:10px;-moz-border-radius: 10px;border-radius: 10px;-webkit-border-radius: 10px;}
