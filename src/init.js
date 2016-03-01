@@ -5,10 +5,10 @@ window.onDomReady(function () {
     if (!! window.ColorizeFilter) {
     /* запрашивается у фильтра, если таковой существует, иначе -- <body> */
         rootNode = window.ColorizeFilter.rootNode();
-        if (!rootNode) {
-            rootNode = document.querySelector('body');
-        };
     }; // конец if
+    if (!rootNode) {
+        rootNode = document.querySelector('body');
+    };
 
     /* список текстовых веток */
     var textNodeList = searchForTextNodeIn(
