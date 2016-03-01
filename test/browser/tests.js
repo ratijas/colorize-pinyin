@@ -1,3 +1,5 @@
+'use strict';
+
 var test = unitjs,
     test_div = document.getElementById('test');
 
@@ -56,11 +58,11 @@ describe('IgnoreLinksNodeFilterTestCase', function () {
     var filter = window.ColorizeFilter.filterNode
     
     it('test_link_tag', function () {
-        link = fromstring("<A HREF='http://bkrs.info/slovo.php?ch=仁'>仁</A>");
+        var link = fromstring("<A HREF='http://bkrs.info/slovo.php?ch=仁'>仁</A>");
         test.assert(! filter(link));
     });
     it('test_other', function () {
-        tag = fromstring('<div class="py">rén<img class="pointer" src="images/player/negative_small/playup.png" /></div>')
+        var tag = fromstring('<div class="py">rén<img class="pointer" src="images/player/negative_small/playup.png" /></div>')
         test.assert(filter(tag));
     });
 });
