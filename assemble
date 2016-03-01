@@ -65,6 +65,8 @@ fi
 rm -f "$OUT_JS" "$OUT_MIN_JS"
 touch "$OUT_JS"
 
+cat "$SRC"/core.js      >> "$OUT_JS"
+
 if [[ "$ONLOAD" ]]; then
     cat "$SRC"/init.js  >> "$OUT_JS"
 fi
@@ -76,8 +78,6 @@ fi
 if [[ "$CSS" ]]; then
     cat "$SRC"/css.js   >> "$OUT_JS"
 fi
-
-cat "$SRC"/core.js      >> "$OUT_JS"
 
 ## minification
 uglifyjs "$OUT_JS" -o "$OUT_MIN_JS" -c -m
