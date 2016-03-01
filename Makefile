@@ -31,12 +31,14 @@ clean:
 	rm -rf $(FINAL)
 
 bkrs:
+	rm -rf "$(BKRSINFO)/$(NAME)@$(VERSION)"
 	mkdir -p "$(BKRSINFO)/$(NAME)@$(VERSION)"
 	./assemble "$(BKRSINFO)/$(NAME)@$(VERSION)/$(NAME).js" onload ie css filter $(SRC)/bkrs.js
 	cd "$(BKRSINFO)" && zip -q -9r "$(NAME)@$(VERSION).zip" "$(NAME)@$(VERSION)"
 	@echo "done: bkrs."
 
 du:
+	rm -rf "$(DU)/$(NAME)@$(VERSION)"
 	mkdir -p "$(DU)/$(NAME)@$(VERSION)"
 	./assemble "$(DU)/$(NAME)@$(VERSION)/user.js" onload filter $(SRC)/dict_uni.js
 	mv "$(DU)/$(NAME)@$(VERSION)/user.min.js" "$(DU)/$(NAME)@$(VERSION)/user.js"
