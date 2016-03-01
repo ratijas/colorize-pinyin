@@ -1,4 +1,5 @@
-/* заточено под bkrs.info */
+/* adjusted for bkrs.info */
+
 window.ColorizeFilter = {
     rootNode: function () {
         return window.document.getElementById('ajax_search');
@@ -12,12 +13,12 @@ window.ColorizeFilter = {
         var style = node.getAttributeNode( 'style' );
 
         // skip <a>, <input>, <span style="color:brown">, *[id="userName"]
-        if ( tagName == 'a' ||
-             tagName == 'input' ||
-             ( tagName == 'span' &&
+        if ( ~['a', 'input', 'script', 'style'].indexOf(tagName) ||
+             ( tagName === 'span' &&
                 !!style &&
-                style.nodeValue == 'color:brown' ) ||
-             id == 'userName' )
+                style.nodeValue === 'color:brown' ) ||
+             id === 'userName' )
+
         {
             return false;
         }

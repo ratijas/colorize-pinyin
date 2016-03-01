@@ -5,6 +5,7 @@ window.ColorizeFilter = {
     rootNode: function () {return null},
 
     filterNode: function (node) {
-        return 'a' !== node.tagName.toLowerCase();
+        var tagName = node.tagName.toLowerCase();
+        return !~['a', 'script', 'style'].indexOf(tagName);
     }
 };
