@@ -117,7 +117,7 @@ var _diacritics = [
     [/[āáǎăà]/g, 'a'],
     [/[ēéěè]/g, 'e'],
     [/[ōóǒò]/g, 'o'],
-    [/[ūúǔùǖǘǚǜ]/g, 'u'],
+    [/[ūúǔŭùǖǘǚǜ]/g, 'u'],
     [/[īíǐì]/g, 'i']
 ];
 
@@ -143,7 +143,7 @@ global.lowercaseStringByRemovingPinyinTones = lowercaseStringByRemovingPinyinTon
 // ---- static vars
 var _t1 = "āēūǖīō";
 var _t2 = "áéúǘíó";
-var _t3 = "ǎăěǔǚǐǒ";
+var _t3 = "ǎăěǔŭǚǐǒ";
 var _t4 = "àèùǜìò";
 
 
